@@ -56,24 +56,7 @@ pip install -r requirements.txt
 
 ---
 
-### 2. Set Gemini API Key (optional but recommended)
-
-```bash
-# Windows CMD
-set GEMINI_API_KEY=your_key_here
-
-# Windows PowerShell
-$env:GEMINI_API_KEY="your_key_here"
-
-# macOS/Linux
-export GEMINI_API_KEY=your_key_here
-```
-
-Without the API key, TrustEval uses an intelligent offline fallback (rule-based analysis).
-
----
-
-### 3. Start the FastAPI Backend
+### 2. Start the FastAPI Backend
 
 ```bash
 # From the trust-eval/ root directory
@@ -89,7 +72,7 @@ API docs available at: `http://localhost:8000/docs`
 
 ---
 
-### 4. Start the React Frontend
+### 3. Start the React Frontend
 
 ```bash
 cd frontend2
@@ -108,7 +91,7 @@ Open: `http://localhost:5173`
 | POST | `/api/auth/signup` | Register a new user |
 | POST | `/api/auth/login` | Login, get JWT token |
 | GET  | `/api/auth/me` | Get current user info |
-| POST | `/api/evaluate` | Evaluate startup idea (ML + Gemini AI) |
+| POST | `/api/evaluate` | Evaluate startup idea (ML + Generative AI) |
 | POST | `/api/explain/shap` | Generate SHAP explanations |
 | POST | `/api/explain/dice` | Generate DiCE counterfactuals |
 | POST | `/api/bias/audit` | Run bias audit for a sensitive attribute |
@@ -166,7 +149,7 @@ The bias is intentionally injected to simulate real-world systemic bias in start
 | ML | scikit-learn (RandomForest) |
 | XAI | SHAP, DiCE-ML |
 | Fairness | Fairlearn (ThresholdOptimizer) |
-| AI | Google Gemini 2.0 Flash |
+| AI | Generative AI Models (OpenRouter Integration) |
 | Auth | Custom JWT (base64, easily replaceable with python-jose) |
 
 ---
@@ -176,7 +159,7 @@ The bias is intentionally injected to simulate real-world systemic bias in start
 ### Environment Variables
 | Variable | Default | Description |
 |----------|---------|-------------|
-| `GEMINI_API_KEY` | `""` | Google Gemini API key |
+| `GEMINI_API_KEY` | `""` | LLM Provider API key |
 | `DATABASE_URL` | `sqlite:///./trusteval.db` | SQLAlchemy database URL |
 | `SECRET_KEY` | `trusteval-secret-key-change-in-prod` | JWT signing secret |
 
